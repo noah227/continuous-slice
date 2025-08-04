@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Continuous Slice Example</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        div {
+            font-family: Consolas;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div id="ff"></div>
+<script type="module">
+    import cSlice from "./dist/index.js"
+
+    const el = document.getElementById("ff")
+    const s = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
+        "Error, excepturi fugiat in ipsam libero magni, " +
+        "pariatur quia quibusdam reprehenderit sequi sit temporibus tenetur, " +
+        "ut veritatis voluptates. Corporis cumque delectus voluptates."
+    cSlice(s, [0, 120], (s, isFinal) => {
+        el.innerText = s + (isFinal ? "" : "_")
+    })
+</script>
+</body>
+</html>
